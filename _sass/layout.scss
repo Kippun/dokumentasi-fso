@@ -128,11 +128,12 @@
 .site-title {
   flex-grow: 1;
   display: flex;
-  height: 100%;
-  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
   padding-top: $sp-3;
   padding-bottom: $sp-3;
   color: $body-heading-color;
+  word-break: break-word;
 
   @include container;
 
