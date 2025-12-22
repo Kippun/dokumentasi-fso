@@ -45,6 +45,13 @@
 			try { localStorage.setItem('jtd-theme', next); } catch(e) {}
 			updateButton(next);
 		});
+
+		// Make "Edit this page on GitHub" link open in a new tab
+		var editLink = document.querySelector('a[href*="github.com"][href*="edit"]');
+		if (editLink) {
+			editLink.setAttribute('target', '_blank');
+			editLink.setAttribute('rel', 'noopener noreferrer');
+		}
 	});
 })();
 
