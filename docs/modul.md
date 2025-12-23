@@ -19,7 +19,7 @@ Sistem FSO ini dibangun menggunakan pendekatan *low-cost* dengan komponen elektr
 ## 1. Mikrokontroler (DOIT ESP32 DevKit V1)
 
 <div style="text-align: center;">
-  <img src="{{ site.baseurl }}/assets/images/esp32devkitv1.webp" alt="ESP32DEVKIT-V1" width="30%">
+  <img src="{{ site.baseurl }}/assets/images/esp32devkitv1.webp"  class="zoomable" alt="ESP32DEVKIT-V1" width="30%">
 </div>
 <center><i>Mikrokontroler ESP32 Dev Kit V1</i></center>
 
@@ -57,7 +57,7 @@ Untuk mengakses datasheet komponen berikut, bisa dengan mengikuti [tautan beriku
 > Selain itu, perlu diperhatikan bahwa tegangan logika pada pin GPIO adalah 3.3V. Hindari menghubungkan sensor 5V secara langsung ke pin input tanpa *level shifter* untuk menjaga keawetan mikrokontroler.
 
 <div style="text-align: center;">
-  <img src="{{ site.baseurl }}/assets/images/esp32-wroom.webp" alt="2N2222" width="70%">
+  <img src="{{ site.baseurl }}/assets/images/esp32-wroom.webp" class="zoomable" alt="2N2222" width="70%">
 </div>
 <center><i>DOIT ESP32 DevKit V1</i></center>
 
@@ -73,7 +73,7 @@ Sisi pengirim (*Transmitter*) terdiri dari Modul Laser SYD1230 sebagai sumber ca
 Kami menggunakan modul laser industri seri SYD1230. Pemilihan modul ini didasarkan pada fitur lensa yang dapat disesuaikan (*adjustable focus*), yang memungkinkan berkas cahaya dikolimasi (dibuat sejajar) untuk menjangkau jarak yang lebih jauh dibandingkan laser *pointer* biasa.
 
 <div style="text-align: center;">
-  <img src="{{ site.baseurl }}/assets/images/syd1230.png" alt="SYD1230" width="400" height="300">
+  <img src="{{ site.baseurl }}/assets/images/syd1230.png" class="zoomable" alt="SYD1230" width="400" height="300">
 </div>
 <center><i>Modul laser SYD1230</i></center>
 
@@ -99,7 +99,7 @@ Untuk mengakses datasheet komponen berikut, bisa dengan mengikuti [tautan beriku
 ### B. Laser Driver (Transistor 2N2222)
 
 <div style="text-align: center;">
-  <img src="{{ site.baseurl }}/assets/images/2n2222.webp" alt="2N2222" width="25%">
+  <img src="{{ site.baseurl }}/assets/images/2n2222.webp" class="zoomable" alt="2N2222" width="25%">
 </div>
 <center><i>Transistor 2N2222</i></center>
 
@@ -146,7 +146,7 @@ Dalam pengembangan riset ini, kami membandingkan dua jenis modul penerima untuk 
 ### A. Modul Sensor Cahaya (LM393)
 
 <div style="text-align: center;">
-  <img src="{{ site.baseurl }}/assets/images/ldr-photoresistor.webp" alt="LDR-Photoresistor" width="35%">
+  <img src="{{ site.baseurl }}/assets/images/ldr-photoresistor.webp" class="zoomable" alt="LDR-Photoresistor" width="35%">
 </div>
 <center><i>LDR Photoresistor</i></center>
 
@@ -169,7 +169,7 @@ Untuk mengakses datasheet komponen berikut, bisa dengan mengikuti [tautan beriku
 ### B. Photodiode OPT101 (Monolithic)
 
 <div style="text-align: center;">
-  <img src="{{ site.baseurl }}/assets/images/OPT101.webp" alt="OPT101" width="40%">
+  <img src="{{ site.baseurl }}/assets/images/OPT101.webp" class="zoomable" alt="OPT101" width="40%">
 </div>
 <center><i>OPT101</i></center>
 
@@ -210,9 +210,16 @@ Untuk mengakses datasheet komponen berikut, bisa dengan mengikuti [tautan beriku
 
 ## 4. Wiring Diagram (Skema Koneksi)
 
-Berikut adalah tabel koneksi antar komponen:
+Berikut adalah visualisasi rangkaian dan tabel koneksi antar komponen.
 
 ### A. Sisi Transmitter (Laser + Driver 2N2222)
+
+<div style="text-align: center;">
+  <img src="{{ site.baseurl }}/assets/images/TRANSMITTER.png" class="zoomable" alt="Wiring Diagram Transmitter FSO" width="45%">
+</div>
+<center><i>Wiring Diagram Transmitter (ESP32 + SYD1230 + 2N2222)</i></center>
+<br>
+
 Sirkuit ini menggunakan konfigurasi Low-Side Switching. Transistor bertindak sebagai sakelar ("keran") di sisi negatif laser untuk memutus-nyambungkan arus.
 
 | Komponen | Pin / Kaki | Terhubung Ke | Keterangan Penting |
@@ -224,6 +231,13 @@ Sirkuit ini menggunakan konfigurasi Low-Side Switching. Transistor bertindak seb
 | | Kolektor (C) | **Laser Kabel (-)** | Kaki kanan. Menampung beban arus dari laser. |
 
 ### B. Sisi Receiver (Modul OPT101)
+
+<div style="text-align: center;">
+  <img src="{{ site.baseurl }}/assets/images/RECEIVER.png" class="zoomable" alt="Wiring Diagram Receiver FSO" width="45%">
+</div>
+<center><i>Wiring Diagram Receiver (ESP32 + OPT101)</i></center>
+<br>
+
 Modul OPT101 membutuhkan tegangan stabil 3.3V agar aman bagi pin ADC ESP32 dan memiliki *noise* rendah.
 
 | Komponen | Pin Modul | Terhubung Ke | Keterangan Penting |
